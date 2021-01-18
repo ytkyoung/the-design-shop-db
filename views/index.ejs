@@ -1,0 +1,30 @@
+<%- include('./partials/header') %>
+    <h1>Hello</h1>
+    <h1>Gallery</h1>
+    <%# JSON.stringify(galleryData) %>
+        <div class="section-center">
+            <% galleryData.forEach(product=> { %>
+                <%= console.log(typeof product.spalten)%>
+                    <article class="product-item <%= product.spalten === '1' ? 'einSpalter' : 'dreiSpalter' %>">
+                        <figure>
+                            <a href="/single/<%= product.id %>">
+                                <img src=" <%=product.img%>" alt="<%= product.title %>" />
+                            </a>
+                            <div class="item-info">
+                                <figcaption>
+                                    <h2 class="product-name">
+                                        <%=product.title%>
+                                    </h2>
+                                    <h3 class="product-brand">
+                                        <%=product.brand%>
+                                    </h3>
+                                </figcaption>
+                                <h4 class="product-price">
+                                    <%=product.price%>
+                                </h4>
+                            </div>
+                        </figure>
+                    </article>
+                    <%})%>
+        </div>
+        <%- include('./partials/footer') %>
